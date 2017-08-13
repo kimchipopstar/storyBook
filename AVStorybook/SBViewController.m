@@ -28,9 +28,6 @@
     [super viewDidLoad];
     
     self.imagePicker = [[UIImagePickerController alloc]init];
-//    
-//    self.tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(screenTap:)];
-//    [self.imageView addGestureRecognizer:self.tapGesture];
 
     
     self.playButton.enabled = NO;
@@ -64,6 +61,8 @@
     } else {
         [self.audioRecorder prepareToRecord];
     }
+    
+    
     
 }
 
@@ -175,6 +174,8 @@
     UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     self.imageView.image = selectedImage;
+//    Model *model = [[Model alloc]init];
+//    model.image = selectedImage;
 }
 
 

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Model.h"
 
 @interface SBViewController : UIViewController
+
+@property (assign) int pageNumber;
+@property (nonatomic, strong) Model *model;
 
 @end
