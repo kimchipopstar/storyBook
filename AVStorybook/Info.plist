@@ -34,5 +34,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>cheese</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>take a peak in your photo library</string>
 </dict>
 </plist>

@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AwO-EN-etF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SBViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,90 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lXl-Wv-eu1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="589"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lo-cR-BMS">
+                                <rect key="frame" x="22" y="617" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Lue-r4-MnG"/>
+                                    <constraint firstAttribute="height" constant="30" id="wpn-Yd-mLA"/>
+                                </constraints>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JqJ-fO-edx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UE-c2-UVO">
+                                <rect key="frame" x="115.5" y="617" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ECg-PJ-vsF"/>
+                                    <constraint firstAttribute="height" constant="30" id="uVq-sP-tlF"/>
+                                </constraints>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HkK-XI-w61"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1D-af-9aR">
+                                <rect key="frame" x="209.5" y="617" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Hsq-I2-W8C"/>
+                                    <constraint firstAttribute="width" constant="50" id="qsq-Dh-O1o"/>
+                                </constraints>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="084-gN-Rsf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3p-9q-c2E">
+                                <rect key="frame" x="275" y="619" width="50" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="UfJ-14-ziW"/>
+                                    <constraint firstAttribute="height" constant="28" id="wUu-jR-IMf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7aX-aj-k47"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="R1D-af-9aR" firstAttribute="top" secondItem="lXl-Wv-eu1" secondAttribute="bottom" constant="28" id="5Ke-ns-MdX"/>
+                            <constraint firstItem="w3p-9q-c2E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.6" id="6zo-Hf-t0C"/>
+                            <constraint firstItem="6lo-cR-BMS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.25" id="8Yn-XT-Kbw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="w3p-9q-c2E" secondAttribute="bottom" constant="20" id="D0G-x5-sAQ"/>
+                            <constraint firstItem="lXl-Wv-eu1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FzM-jt-xd7"/>
+                            <constraint firstItem="4UE-c2-UVO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.75" id="GhQ-MX-WRM"/>
+                            <constraint firstItem="R1D-af-9aR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.25" id="SjE-22-hqP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4UE-c2-UVO" secondAttribute="bottom" constant="20" id="Tg2-rx-Xgi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6lo-cR-BMS" secondAttribute="bottom" constant="20" id="UF5-bq-BDb"/>
+                            <constraint firstItem="lXl-Wv-eu1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fZJ-gW-sD3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="R1D-af-9aR" secondAttribute="bottom" constant="20" id="lIZ-jM-sU3"/>
+                            <constraint firstAttribute="trailing" secondItem="lXl-Wv-eu1" secondAttribute="trailing" id="pLJ-aa-fPA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="lXl-Wv-eu1" id="Flx-MS-FTV"/>
+                        <outlet property="playButton" destination="R1D-af-9aR" id="Y4u-Bf-G4X"/>
+                        <outlet property="recordButton" destination="6lo-cR-BMS" id="tE1-4P-pdX"/>
+                        <outlet property="stopButton" destination="4UE-c2-UVO" id="JaJ-8y-l3b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-492" y="-603.14842578710648"/>
+        </scene>
+        <!--Story Bookpage View Controller-->
+        <scene sceneID="64h-NB-c2Z">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="AwO-EN-etF" customClass="StoryBookpageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IKC-n8-DuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="439" y="-589"/>
         </scene>
     </scenes>
 </document>

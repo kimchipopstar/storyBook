@@ -13,6 +13,9 @@
 		4D2D9C0A1F3E5A90005F089E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2D9C081F3E5A90005F089E /* Main.storyboard */; };
 		4D2D9C0C1F3E5A90005F089E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D2D9C0B1F3E5A90005F089E /* Assets.xcassets */; };
 		4D2D9C0F1F3E5A90005F089E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2D9C0D1F3E5A90005F089E /* LaunchScreen.storyboard */; };
+		4D2D9C181F3E5CF7005F089E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D9C171F3E5CF7005F089E /* Model.m */; };
+		4D2D9C1B1F3E5ED3005F089E /* StoryBookpageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D9C1A1F3E5ED3005F089E /* StoryBookpageViewController.m */; };
+		4D2D9C1E1F3E6042005F089E /* SBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D9C1D1F3E6042005F089E /* SBViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		4D2D9C0B1F3E5A90005F089E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D2D9C0E1F3E5A90005F089E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D2D9C101F3E5A90005F089E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D2D9C161F3E5CF7005F089E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		4D2D9C171F3E5CF7005F089E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		4D2D9C191F3E5ED3005F089E /* StoryBookpageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBookpageViewController.h; sourceTree = "<group>"; };
+		4D2D9C1A1F3E5ED3005F089E /* StoryBookpageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryBookpageViewController.m; sourceTree = "<group>"; };
+		4D2D9C1C1F3E6042005F089E /* SBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBViewController.h; sourceTree = "<group>"; };
+		4D2D9C1D1F3E6042005F089E /* SBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +67,16 @@
 		4D2D9BFE1F3E5A90005F089E /* AVStorybook */ = {
 			isa = PBXGroup;
 			children = (
-				4D2D9C021F3E5A90005F089E /* AppDelegate.h */,
-				4D2D9C031F3E5A90005F089E /* AppDelegate.m */,
 				4D2D9C051F3E5A90005F089E /* ViewController.h */,
 				4D2D9C061F3E5A90005F089E /* ViewController.m */,
 				4D2D9C081F3E5A90005F089E /* Main.storyboard */,
+				4D2D9C1C1F3E6042005F089E /* SBViewController.h */,
+				4D2D9C1D1F3E6042005F089E /* SBViewController.m */,
+				4D2D9C191F3E5ED3005F089E /* StoryBookpageViewController.h */,
+				4D2D9C1A1F3E5ED3005F089E /* StoryBookpageViewController.m */,
+				4D2D9C161F3E5CF7005F089E /* Model.h */,
+				4D2D9C171F3E5CF7005F089E /* Model.m */,
 				4D2D9C0B1F3E5A90005F089E /* Assets.xcassets */,
-				4D2D9C0D1F3E5A90005F089E /* LaunchScreen.storyboard */,
 				4D2D9C101F3E5A90005F089E /* Info.plist */,
 				4D2D9BFF1F3E5A90005F089E /* Supporting Files */,
 			);
@@ -74,6 +86,9 @@
 		4D2D9BFF1F3E5A90005F089E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D2D9C0D1F3E5A90005F089E /* LaunchScreen.storyboard */,
+				4D2D9C021F3E5A90005F089E /* AppDelegate.h */,
+				4D2D9C031F3E5A90005F089E /* AppDelegate.m */,
 				4D2D9C001F3E5A90005F089E /* main.m */,
 			);
 			name = "Supporting Files";
@@ -151,8 +166,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D2D9C071F3E5A90005F089E /* ViewController.m in Sources */,
+				4D2D9C1E1F3E6042005F089E /* SBViewController.m in Sources */,
+				4D2D9C1B1F3E5ED3005F089E /* StoryBookpageViewController.m in Sources */,
 				4D2D9C041F3E5A90005F089E /* AppDelegate.m in Sources */,
 				4D2D9C011F3E5A90005F089E /* main.m in Sources */,
+				4D2D9C181F3E5CF7005F089E /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
