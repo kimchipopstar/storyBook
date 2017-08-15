@@ -11,7 +11,6 @@
 #import "SBViewController.h"
 
 @interface StoryBookpageViewController () <UIPageViewControllerDataSource,UIPageViewControllerDelegate>
-
 @property (nonatomic, strong) NSArray *modelArray;
 
 @end
@@ -32,8 +31,10 @@
     self.modelArray = @[model1,model2,model3,model4,model5];
     
     SBViewController *sbVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SBVC"];
- 
+    sbVC.pageNumber = 0;
     sbVC.model = self.modelArray[sbVC.pageNumber];
+
+//    model.image = sbVC.model.image;
     [self setViewControllers:@[sbVC] direction:(UIPageViewControllerNavigationDirectionForward) animated:YES completion:nil];
 
 }
@@ -47,9 +48,16 @@
     
     int currentNumber = ((SBViewController *)viewController).pageNumber;
     
+    if (currentNumber + 1 == self.modelArray.count) {
+        return nil;
+    }
+    
+    //    Model *currentModel = [self.modelArray objectAtIndex:currentNumber];
+    
     SBViewController *nextPage = [self.storyboard instantiateViewControllerWithIdentifier:@"SBVC"];
     
     nextPage.pageNumber = currentNumber + 1;
+    nextPage.model = self.modelArray[currentNumber + 1];
     
 //    Model *model = self.modelArray[currentNumber];
 //    nextPage.imageview
@@ -68,6 +76,7 @@
     SBViewController *previousPage = [self.storyboard instantiateViewControllerWithIdentifier:@"SBVC"];
     
     previousPage.pageNumber = currentNumber - 1;
+    previousPage.model = self.modelArray[currentNumber - 1];
     
     return previousPage;
 }

@@ -29,6 +29,7 @@
     
     self.imagePicker = [[UIImagePickerController alloc]init];
 
+    self.imageView.image = self.model.image;
     
     self.playButton.enabled = NO;
     self.stopButton.enabled = NO;
@@ -55,6 +56,7 @@
     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     
     self.audioRecorder = [[AVAudioRecorder alloc]initWithURL:soundFileURL settings:recordSeetings error:&error];
+    
     
     if (error){
         NSLog(@"error: %@",[error localizedDescription]);
@@ -120,26 +122,6 @@
     
 }
 
-//-(void)screenTap:(UITapGestureRecognizer*)sender{
-//    if (!self.audioRecorder.recording) {
-//        
-//        self.tapGesture.enabled = YES;
-//        self.recordButton.enabled = NO;
-//        NSError *error;
-//        
-//        self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:self.audioRecorder.url error:&error];
-//        
-//        _audioPlayer.delegate = self;
-//        
-//        if (error){
-//            NSLog(@"Error: %@",[error localizedDescription]);
-//        } else {
-//            [self.audioPlayer play];
-//        }
-//    }
-//
-//}
-
 #pragma makr - record and play delegate method
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
@@ -173,9 +155,11 @@
     
     UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    self.imageView.image = selectedImage;
-//    Model *model = [[Model alloc]init];
-//    model.image = selectedImage;
+    self.model.image = selectedImage;
+    
+    self.imageView.image = self.model.image;
+
+    
 }
 
 
