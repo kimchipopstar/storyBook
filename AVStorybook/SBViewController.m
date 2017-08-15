@@ -40,28 +40,18 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = dirPaths[0];
     
-    NSString *soundFilePath = [docsDir stringByAppendingString:@"sound.caf"];
     
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    
-    NSDictionary *recordSeetings = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [NSNumber numberWithInt:AVAudioQualityMedium],AVEncoderAudioQualityKey,
-                                    [NSNumber numberWithInt:16],AVEncoderBitRateKey,
-                                    [NSNumber numberWithInt:2],AVNumberOfChannelsKey,
-                                    [NSNumber numberWithFloat:44100.0],AVSampleRateKey, nil];
-    
-    NSError *error = nil;
-    
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
-    
-    self.audioRecorder = [[AVAudioRecorder alloc]initWithURL:soundFileURL settings:recordSeetings error:&error];
-    
-    
-    if (error){
-        NSLog(@"error: %@",[error localizedDescription]);
-    } else {
-        [self.audioRecorder prepareToRecord];
+    if (self.model.soundsURL) {
+        self.playButton.enabled = YES;
+    }
+  
+    if (self.model.soundsURL == nil) {
+        
+        NSString *soundFileString = [NSString stringWithFormat:@"sound_%d", self.pageNumber];
+        NSString *soundFilePath = [docsDir stringByAppendingString:soundFileString];
+        
+        NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+        self.model.soundsURL = soundFileURL;
     }
     
     
@@ -81,6 +71,31 @@
     
     if (!self.audioRecorder.recording) {
         
+        
+        
+        NSDictionary *recordSeetings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [NSNumber numberWithInt:AVAudioQualityMedium],AVEncoderAudioQualityKey,
+                                        [NSNumber numberWithInt:16],AVEncoderBitRateKey,
+                                        [NSNumber numberWithInt:2],AVNumberOfChannelsKey,
+                                        [NSNumber numberWithFloat:44100.0],AVSampleRateKey, nil];
+        
+        
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+        
+        NSError *error = nil;
+        
+    
+        self.audioRecorder = [[AVAudioRecorder alloc]initWithURL:self.model.soundsURL settings:recordSeetings error:&error];
+        
+    
+        if (error){
+            NSLog(@"error: %@",[error localizedDescription]);
+        } else {
+            [self.audioRecorder prepareToRecord];
+        }
+        
+        
         self.playButton.enabled = NO;
         self.stopButton.enabled = YES;
         [self.audioRecorder record];
@@ -92,6 +107,8 @@
     self.stopButton.enabled = NO;
     self.playButton.enabled = YES;
     self.recordButton.enabled = YES;
+    
+    
     
     if (self.audioRecorder.recording) {
         [self.audioRecorder stop];
@@ -108,7 +125,7 @@
         self.recordButton.enabled = NO;
         NSError *error;
         
-        self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:self.audioRecorder.url error:&error];
+        self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:self.model.soundsURL error:&error];
         
         _audioPlayer.delegate = self;
         
